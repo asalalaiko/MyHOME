@@ -1,10 +1,13 @@
 CREATE TABLE IF NOT EXISTS users
 (
     id SERIAL PRIMARY KEY,
+    login varchar(100),
+    password varchar(100),
     first_name varchar(100),
     last_name varchar(100),
-    departament_id bigint,
-    job_title varchar(100),
-    gender varchar(10),
-    date_of_birth date
+    role bigint,
+    locked bit,
+    email varchar(100)
     )
+
+
