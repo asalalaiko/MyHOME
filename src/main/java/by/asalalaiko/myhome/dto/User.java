@@ -7,16 +7,15 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE,
-            generator="users_seq")
-    @SequenceGenerator(name="users_seq",
-            sequenceName="SEQ_USER", initialValue = 1, allocationSize=1)
-    @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="users_seq")
+    @SequenceGenerator(name="users_seq", sequenceName="SEQ_USER", initialValue = 2, allocationSize=1)
+    @Column(name = "id", nullable = false)
     private Long id;
     private String login;
     private String password;
     private String firstName;
     private String lastName;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     private Boolean locked;
     private String email;
