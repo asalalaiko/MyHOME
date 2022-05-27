@@ -20,6 +20,9 @@ public class User {
     private Boolean locked;
     private String email;
 
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
