@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users
     password varchar(255),
     first_name varchar(255),
     last_name varchar(255),
-    role varchar(100),
+    user_role varchar(100),
     locked boolean,
     email varchar(255)
     );

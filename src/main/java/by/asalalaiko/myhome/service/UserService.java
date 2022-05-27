@@ -8,7 +8,7 @@ public interface UserService {
 
     User getUser (Long id);
 
-    User getUserByLogin(String login);
+     User getUserByLogin(String login);
 
     boolean addUser(User user);
 

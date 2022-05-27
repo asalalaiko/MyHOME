@@ -39,7 +39,7 @@ public class JPAUserService implements UserService {
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(UserRole.MANAGER);
+        user.setRole(UserRole.USER); //ALL User created with role USER
 
 
         saveUser(user);
