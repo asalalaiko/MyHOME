@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <th:block th:insert="block/header.html :: header" />
+</head>
+<body>
+<th:block th:insert="block/navBar.html :: navBar" />
+
+<div class="container">
+    <div class="row justify-content-center p-2" th:if="${param.error}">Invalid
+        username and password.</div> <div class="row justify-content-center p-2" th:text="${param.error}"></div>
+    <div class="row justify-content-center p-2" th:if="${param.logout}">You
+        have been logged out.</div>
+    <form method="post" th:action="@{/register}" th:object="${user}">
+
+        <div class="row justify-content-center  p-1">
+            <div class="col-sm  p-1 justify-content-end"
+                 style="text-align: right">Login :</div>
+            <div class="col-sm  p-1">
+                <input type="text" th:field="*{login}" />
+            </div>
+
+        </div>
+        <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</div>
+
+
+        <div class="row justify-content-center  p-1">
+            <div class="col-sm  p-1 justify-content-end"
+                 style="text-align: right">Password :</div>
+            <div class="col-sm  p-1">
+                <input type="password" th:field="*{password}"/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+
+        <div class="row justify-content-center  p-1">
+            <div class="col-sm  p-1 justify-content-end"
+                 style="text-align: right">Email :</div>
+            <div class="col-sm  p-1">
+                <input type="text" th:field="*{email}"/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+
+        <div class="row justify-content-center  p-1">
+            <div class="col-sm  p-1 justify-content-end"
+                 style="text-align: right">First name :</div>
+            <div class="col-sm  p-1">
+                <input type="text" th:field="*{firstName}"/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name Error</div>
+
+        <div class="row justify-content-center  p-1">
+            <div class="col-sm  p-1 justify-content-end"
+                 style="text-align: right">First name :</div>
+            <div class="col-sm  p-1">
+                <input type="text" th:field="*{lastName}"/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last name Error</div>
+
+        <div  class="row justify-content-center  p-1 g-recaptcha" data-sitekey="6Lc_mwQeAAAAAHnK7PHKAHn43oG3Ppm1ybs18rwr"></div>
+
+        <div  th:if="${captchaError}">
+            <div class="alert  alert-dismissible alert-danger" role="alert">
+                <p th:text="${captchaError}"></p>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center  p-1">
+            <input class="btn btn-success" type="submit" value="Register" />
+        </div>
+    </form>
+</div>
+
+<div th:insert="block/footer.html :: footer"></div>
+</body>
+</html>
