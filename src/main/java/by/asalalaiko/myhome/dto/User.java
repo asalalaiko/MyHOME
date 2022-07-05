@@ -17,7 +17,7 @@ public class User implements UserDetails {
     @Column(name = "id")
     private Long id;
     @Column(name = "login", unique = true)
-    private String login;
+    private String login; //phone number (+XXXXXXXXXXXX)
     @NotNull
     @Column(name = "password")
     @Length(min = 3)
