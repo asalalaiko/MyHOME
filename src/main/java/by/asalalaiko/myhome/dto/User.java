@@ -16,9 +16,9 @@ public class User implements UserDetails {
     @SequenceGenerator(name="users_seq", sequenceName="SEQ_USER", initialValue = 1, allocationSize=1)
     @Column(name = "id")
     private Long id;
+    @NotNull
     @Column(name = "login", unique = true)
     private String login; //phone number (+XXXXXXXXXXXX)
-    @NotNull
     @Column(name = "password")
     @Length(min = 3)
     private String password;
